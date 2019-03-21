@@ -1,0 +1,11 @@
+<image class="absolute icon" src="../../static/imgs/wxlogin-auth.svg"></image>
+
+<view class="absolute title">需要您的授权</view>
+
+<view class="absolute description">{{description}}</view>
+
+<button class="absolute login" type="{{loginType}}" disabled="{{loginDisabled}}" open-type="getUserInfo" bindtap="login">{{loginText}}</button>
+
+<button wx:if="{{!canIAccessLocation}}" class="absolute location" type="{{locationType}}" disabled="{{locationDisabled}}">{{locationText}}</button>
+
+<view class="absolute copyright">Copyright © 2018-2019 Busys Jinan</view>

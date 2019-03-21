@@ -1,1 +1,2 @@
-<button open-type="getUserInfo" lang="zh_CN" bindtap="login" bindgetuserinfo="getUserInfo">login</button>
+<!--pages/index/index.wxml-->
+<text>pages/index/index.wxml</text>

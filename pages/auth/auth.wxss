@@ -1,0 +1,52 @@
+
+
+.absolute {
+    position: absolute;
+}
+
+.icon {
+    width: 186rpx;
+    height: 186rpx;
+    top: 100rpx;
+    left: 282rpx;
+}
+
+.title {
+    top: 335rpx;
+    width: 100%;
+    text-align: center;
+    font-size: 40rpx;
+}
+
+.description {
+    top: 420rpx;
+    left: 107rpx;
+    right: 107rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #888888;
+}
+
+.login {
+    top: 560rpx;
+    left: 41rpx;
+    right: 41rpx;
+    height: 94rpx;
+    font-size: 36rpx;
+}
+
+.location {
+    top: 685rpx;
+    left: 41rpx;
+    right: 41rpx;
+    height: 94rpx;
+    font-size: 36rpx;
+}
+
+.copyright {
+    bottom: 32rpx;
+    width: 100%;
+    font-size: 20rpx;
+    color: #B2B2B2;
+    text-align: center;
+}

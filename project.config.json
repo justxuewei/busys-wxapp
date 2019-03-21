@@ -12,9 +12,9 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.4",
+	"libVersion": "2.1.1",
 	"appid": "wx58d0e726eaeddb1e",
-	"projectname": "lxbysj",
+	"projectname": "busys",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -28,13 +28,25 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "登录测试",
+					"pathName": "pages/auth/auth",
+					"query": "",
+					"scene": null
+				}
+			]
 		}
 	}
 }

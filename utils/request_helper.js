@@ -15,27 +15,23 @@ export default class RequestHelper {
      *  opts.complete
      */
     static request(opts) {
-        // 检测用户登录状态
-        LoginHelper.checkSession({
-            success: () => {
-                // 用户已经登录
-                wx.request({
-                    url: opts.url,
-                    data: opts.data,
-                    method: opts.method,
-                    header: {
-                        'Content-Type': 'application/json',
-                        'X-Gj-Token': Constants.getToken()
-                    },
-                    success: opts.success,
-                    fail: opts.fail,
-                    complete: opts.complete
-                })
+        // 用户已经登录
+        wx.request({
+            url: opts.url,
+            data: opts.data,
+            method: opts.method,
+            header: {
+                'Content-Type': 'application/json',
+                'X-Gj-Token': Constants.getToken()
             },
-            reloginSuccess: () => {
-                // 重新登录成功后重新调用本方法
-                console.log('>>> 目前状态未登录，request重新调用自己')
-                this(opts)
+            success: (res) => {
+                if (opts.success) opts.success(res)
+            },
+            fail: (res) => {
+                if (opts.fail) opts.fail(res);
+            },
+            complete: () => {
+                if (opts.complete) opts.complete()
             }
         })
     }
@@ -44,10 +40,9 @@ export default class RequestHelper {
      * GET方法
      * @param {*} opts 传入的参数，包括: 
      *  opts.url
-     *  opts.data
-     *  opts.success
+     *  opts.customSuccess 用户自定义成功回调
      *  opts.serverErrorFail 服务器错误回调
-     *  opts.fail
+     *  opts.customFail
      *  opts.complete
      *  opts.needDisplayLoading 是否显示正在加载
      *  opts.needDisplayErrorModal 是否需要在错误时返回Modal框
@@ -56,12 +51,11 @@ export default class RequestHelper {
         if (opts.needDisplayLoading) {
             UIHelper.showLoading()
         }
-        request({
+        this.request({
             url: opts.url,
-            data: opts.data,
             method: 'GET',
-            success: __success(opts),
-            fail: __fail(opts),
+            success: this.__success(opts),
+            fail: this.__fail(opts),
             complete: opts.complete
         })
     }
@@ -71,9 +65,9 @@ export default class RequestHelper {
      * @param {*} opts 传入的参数，包括: 
      *  opts.url
      *  opts.data
-     *  opts.success
+     *  opts.customSuccess 用户自定义成功回调
      *  opts.serverErrorFail 服务器错误回调
-     *  opts.fail
+     *  opts.customFail
      *  opts.complete
      *  opts.needDisplayLoading 是否显示正在加载
      *  opts.needDisplayErrorModal 是否需要在错误时返回Modal框
@@ -82,12 +76,12 @@ export default class RequestHelper {
         if (opts.needDisplayLoading) {
             UIHelper.showLoading()
         }
-        request({
+        this.request({
             url: opts.url,
             data: opts.data,
             method: 'POST',
-            success: __success(opts),
-            fail: __fail(opts),
+            success: this.__success(opts),
+            fail: this.__fail(opts),
             complete: opts.complete
         })
     }
