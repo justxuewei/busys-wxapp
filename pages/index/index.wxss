@@ -1,1 +1,201 @@
 /* pages/index/index.wxss */
+.absolute {
+    position: absolute;
+}
+
+
+.relative {
+    position: relative;
+}
+
+.search-container {
+    top: 20rpx;
+    left: 33rpx;
+    width: 684rpx;
+    height: 84rpx;
+    background: #EDEDED;
+    border-radius: 20rpx;
+    border-radius: 20rpx;
+}
+
+.search-icon {
+    left: 278rpx;
+    top: 27rpx;
+    width: 30rpx;
+    height: 33rpx;
+}
+
+.search-text {
+    left: 335rpx;
+    top: 18rpx;
+    font-size: 34px;
+    color: #8A8A8A;
+    letter-spacing: 1.13px;
+    font-size: 34rpx;
+}
+
+.no-data-container {
+    top: 123rpx;
+    width: 100%;
+}
+
+.bus-info-container {
+    top: 123rpx;
+    background: #FAFAFA;
+    width: 100%;
+}
+
+.clear {
+    clear: both;
+}
+
+.title {
+    margin-top: 45rpx;
+    margin-left: 27rpx;
+    font-size: 40rpx;
+    color: #000000;
+    letter-spacing: 0;
+    text-align: center;
+    font-weight: bold;
+    display:block;
+    float: left;
+}
+
+.update-subtitle {
+    display:block;
+    float: left;
+    margin-left: 16rpx;
+    margin-top: 64rpx;
+    font-size: 20rpx;
+    color: #646464;
+    letter-spacing: 0;
+}
+
+.bus-info-list {
+    padding-top: 29rpx;
+    padding-bottom: 40rpx;
+    box-sizing: border-box;
+}
+
+.bus-info-card {
+    margin-top: 25rpx;
+    margin-left: 33rpx;
+    width: 684rpx;
+    background: #FFFFFF;
+    box-shadow: 0 8rpx 15rpx 0 rgba(0,0,0,0.08);
+    border-radius: 10rpx;
+    border-radius: 10rpx;
+    padding-bottom: 24rpx;
+    padding-left: 27rpx;
+    box-sizing: border-box;
+}
+
+.bus-info-card-status {
+    display: block;
+    float: left;
+    margin-top: 42rpx;
+    height: 24rpx;
+    width: 24rpx;
+}
+
+.bus-info-card-bus-line-name {
+    display: block;
+    float: left;
+    margin-left: 16rpx;
+    margin-top: 26rpx;
+    font-size: 40rpx;
+    color: #000000;
+    letter-spacing: 1.3rpx;
+    font-weight: bold;
+}
+
+.bus-info-card-time-container {
+    display: block;
+    float: right;
+    background: #DCF8F5;
+    border-radius: 20rpx 0px 0px 20rpx;
+    padding: 6rpx 26rpx 6rpx 41rpx;
+    font-size: 26rpx;
+    color: #3CB08E;
+    margin-top: 30rpx;
+    font-weight: bold;
+}
+
+.bus-info-card-time-container-stopping {
+    display: block;
+    float: right;
+    background: #FFDADA;
+    border-radius: 20rpx 0px 0px 20rpx;
+    padding: 6rpx 26rpx 6rpx 41rpx;
+    font-size: 26rpx;
+    color: #FF4949;
+    margin-top: 30rpx;
+    font-weight: bold;
+}
+
+.hr {
+    display: block;
+    float: left;
+    margin-top: 26rpx;
+    height: 1px;
+    width: 630rpx;
+    background: #F1F1F1;
+}
+
+.bus-info-card-detail-container {
+    display: block;
+    float: left;
+    margin-top: 27rpx;
+    box-sizing: border-box;
+    margin-left: 26rpx;
+}
+
+.bus-info-card-detail-item-container {
+    display: block;
+    float: left;
+    width: 120rpx;
+}
+
+.bus-info-card-detail-last-item-container {
+    display: block;
+    float: right;
+    margin-left: 73rpx;
+}
+
+.bus-info-card-detail-item-title {
+    font-size: 24rpx;
+    color: #8A8A8A;
+}
+
+.bus-info-card-detail-item-text {
+    font-size: 30rpx;
+    color: #242424;
+    margin-top: 10rpx;
+}
+
+.bus-info-card-detail-item-big-text {
+    font-size: 40rpx;
+    color: #242424;
+    letter-spacing: 1.3rpx;
+    margin-top: 10rpx;
+    font-weight: bold;
+    text-align: right;
+    width: 100%;
+}
+
+.no-data-image {
+    top: 277rpx;
+    left: 277rpx;
+    width: 196rpx;
+    height: 159rpx;
+}
+
+.no-data-desc {
+    top: 471rpx;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #969696;
+    font-size: 30rpx;
+}
+

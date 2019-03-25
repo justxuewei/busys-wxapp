@@ -1,2 +1,53 @@
-<!--pages/index/index.wxml-->
-<text>pages/index/index.wxml</text>
+<!-- pages/index/index.wxml -->
+<view class="relative search-container" bindtap="navigateToSearchView">
+    <image class="absolute search-icon" src="../../static/imgs/search.svg"></image>
+    <view class="absolute search-text">搜索</view>
+</view>
+<view class="absolute bus-info-container" style="min-height: {{busContainerMinHeight}}rpx" wx:if="{{busLineList.length > 0 && !isInitializing}}">
+    <view class="title-container">
+        <view class="title">公共汽车</view>
+        <view class="update-subtitle" wx:if="{{updateTime}}">更新于{{updateTime}}</view>
+        <view class="update-subtitle" wx:else>暂未更新</view>
+        <view class="clear"></view>
+    </view>
+    <view class="bus-info-list">
+        <block wx:for="{{busLineList}}" wx:key="index">
+            <view class="bus-info-card" hover-class="navigator-hover" bindtap="navigateToBusLine" data-favid="{{item.favId}}" data-buslineid="{{item.busLineId}}" 
+            data-sn="{{item.startStation}}" data-en="{{item.endStation}}" data-bln="{{item.busLineName}}">
+                <view>
+                    <image class="bus-info-card-status" wx:if="{{item.isRunning}}" src="../../static/imgs/working.svg"></image>
+                    <image class="bus-info-card-status" wx:else src="../../static/imgs/stopping.svg"></image>
+                    <view class="bus-info-card-bus-line-name">{{item.busLineName}}路</view>
+                    <view class="bus-info-card-time-container" wx:if="{{item.isRunning}}">
+                        运行中
+                    </view>
+                    <view class="bus-info-card-time-container-stopping" wx:else>
+                        已停运
+                    </view>
+                    <view class="hr"></view>
+                    <view class="bus-info-card-detail-container">
+                        <view class="bus-info-card-detail-item-container">
+                            <view class="bus-info-card-detail-item-title">开往</view>
+                            <view class="bus-info-card-detail-item-text">{{item.endStation}}</view>
+                        </view>
+                        <view class="bus-info-card-detail-item-container" style="margin-left: 73rpx">
+                            <view class="bus-info-card-detail-item-title">乘车点</view>
+                            <view class="bus-info-card-detail-item-text">{{item.pickUpPointName}}</view>
+                        </view>
+                        <view class="bus-info-card-detail-last-item-container">
+                            <view class="bus-info-card-detail-item-title">距乘车点最近的车</view>
+                            <view class="bus-info-card-detail-item-big-text">{{item.howManyStopsForTheNearestBus}}站</view>
+                        </view>
+                        <view class="clear"></view>
+                    </view>
+                    <view class="clear"></view>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>
+
+<view class="absolute no-data-container" wx:if="{{busLineList.length == 0 && !isInitializing}}">
+    <image class="absolute no-data-image" src="../../static/imgs/no-data.svg"></image>
+    <view class="absolute no-data-desc">暂无数据，请先搜索一下吧</view>
+</view>

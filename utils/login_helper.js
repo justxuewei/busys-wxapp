@@ -8,6 +8,7 @@ export default class LoginHelper {
    * @param {*} opts 
    *  opts.success 成功回调
    *  opts.fail
+   *  opts.complete
    */
   static login(opts = {}) {
     wx.login({
@@ -50,26 +51,33 @@ export default class LoginHelper {
         console.log(">>> 1")
         RequestHelper.get({
           url: Constants.getApiUrl("/auth/check"),
+          customSuccess: (res) => {
+            if (opts.success) opts.success()
+          },
           serverErrorFail: (res) => {
-            // 重新登录
-            wx.showToast({
-              title: "登录过期，请重新登录",
-              icon: "none",
-              duration: 1000,
-              success: () => {
-                setTimeout(() => {
-                  wx.redirectTo({
-                    url: "/pages/auth/auth"
-                  })
-                }, 1000)
-              }
+            wx.redirectTo({
+              url: "/pages/auth/auth"
             })
+            // 重新登录
+            // wx.showToast({
+            //   title: "登录过期，请重新登录",
+            //   icon: "none",
+            //   duration: 1000,
+            //   success: () => {
+            //     setTimeout(() => {
+            //       wx.redirectTo({
+            //         url: "/pages/auth/auth"
+            //       })
+            //     }, 1000)
+            //   }
+            // })
           }
         })
       },
       fail: () => {
         if (opts.fail) opts.fail()
-      }
+      },
+      complete: opts.complete
     })
   }
 

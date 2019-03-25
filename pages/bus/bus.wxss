@@ -1,0 +1,272 @@
+/* pages/bus/bus.wxss */
+.absolute {
+    display: block;
+    position: absolute;
+}
+
+.relative {
+    display: block;
+    position: relative;
+}
+
+.clear {
+    clear: both;
+}
+
+::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
+.bus-info-background {
+    top: 20rpx;
+    left: 33rpx;
+    width: 684rpx;
+    height: 269rpx;
+    box-shadow: 0 6px 8px 0 rgba(98,196,97,0.40);
+    border-radius: 10rpx;
+}
+
+.bus-line-name {
+    top: 29rpx;
+    left: 42rpx;
+    font-size: 60rpx;
+    color: #FFFFFF;
+    letter-spacing: 1rpx;
+    font-weight: bolder;
+}
+
+.direction {
+    top: 130rpx;
+    left: 42rpx;
+    font-size: 30rpx;
+    color: rgba(255,255,255,0.70);
+}
+
+.sn-en {
+    top: 183rpx;
+    left: 42rpx;
+    font-size: 35rpx;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.switch-to {
+    top: 43rpx;
+    right: 48rpx;
+    width: 56rpx;
+    height: 56rpx;
+}
+
+.pick-up-section-title {
+    top: 334rpx;
+    left: 27rpx;
+    font-size: 40rpx;
+    font-weight: bold;
+}
+
+.pick-up-container {
+    top: 422rpx;
+    left: 33rpx;
+    width: 684rpx;
+    height: 128rpx;
+}
+
+.pick-up-bg {
+    z-index: -1;
+    width: 684rpx;
+    height: 128rpx;
+}
+
+.pick-up-item1-container {
+    display: block;
+    float: left;
+    max-width: 225rpx;
+    margin-left: 25rpx;
+    z-index: 3;
+}
+
+.pick-up-item2n3-container {
+    display: block;
+    float: left;
+    max-width: 123rpx;
+    margin-left: 50rpx;
+    z-index: 3;
+}
+
+.pick-up-title {
+    padding-top: 21rpx;
+    font-size: 20rpx;
+    color: #405AA2;
+}
+
+.pick-up-content {
+    margin-top: 9rpx;
+    font-size: 35rpx;
+    font-weight: bold;
+    color: #405AA2;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.settings-icon {
+    display: block;
+    float: right;
+    margin-top: 40rpx;
+    margin-right: 32rpx;
+    width: 48rpx;
+    height: 48rpx;
+}
+
+.real-time-location-container {
+    top: 597rpx;
+    width: 100%;
+    background: #FAFAFA;
+}
+
+.title {
+    margin-top: 45rpx;
+    margin-left: 27rpx;
+    font-size: 40rpx;
+    color: #000000;
+    letter-spacing: 0;
+    text-align: center;
+    font-weight: bold;
+    display:block;
+    float: left;
+}
+
+.update-subtitle {
+    display:block;
+    float: left;
+    margin-left: 16rpx;
+    margin-top: 64rpx;
+    font-size: 20rpx;
+    color: #646464;
+    letter-spacing: 0;
+}
+
+.real-time-map-container {
+    box-sizing: border-box;
+    margin-top: 32rpx;
+    width: 100%;
+    box-sizing:border-box;
+}
+
+.holder {
+    height: 1rpx;
+}
+
+.map {
+    display: block;
+    z-index: 1;
+    position: absolute;
+    height: 28rpx;
+    border-radius: 13rpx;
+    background: #3FB374;
+    margin-left: 33rpx;
+    overflow: visible;
+}
+
+.station-container {
+    display: block;
+    float: left;
+    width: 100rpx;
+}
+
+.station-icon {
+    margin-left: 36rpx;
+    display: block;
+    height: 28rpx;
+    width: 28rpx;
+}
+
+.arrow-icon {
+    display: block;
+    float: left;
+    margin-top: 8rpx;
+    height: 13rpx;
+    width: 8rpx;
+}
+
+.station-name-container {
+    display: block;
+    margin-left: 33rpx;
+    margin-top: 10rpx;
+}
+
+.station-name {
+    font-size: 20rpx;
+    color: #626262;
+    text-align: center;
+    margin-top: 10rpx;
+}
+
+.bus-location {
+    display: block;
+    width: 40rpx;
+    height: 48rpx;
+}
+
+.detail-container {
+    margin-top: 15rpx;
+    margin-left: 33rpx;
+    width: 684rpx;
+    background: #fff;
+    box-shadow: 0 8px 15px 0 rgba(0,0,0,0.08);
+    border-radius: 9rpx;
+}
+
+.detail-header-icon {
+    float: left;
+    width: 37rpx;
+    height: 37rpx;
+    margin-top: 25rpx;
+    margin-left: 27rpx;
+}
+
+.detail-header-text {
+    float: left;
+    margin-left: 23rpx;
+    margin-top: 21rpx;
+    font-size: 32rpx;
+    color: #000000;
+    letter-spacing: 1rpx;
+    font-weight: bold;
+}
+
+.hr {
+    height: 1px;
+    background: #F1F1F1;
+    margin-left: 27rpx;
+    margin-top: 19rpx;
+    width: 630rpx;
+}
+
+.detail-list-container {
+    margin-top: 34rpx;
+    padding-bottom: 37rpx;
+}
+
+.detail-title {
+    font-size: 24rpx;
+    color: #393939;
+    letter-spacing: 1rpx;
+    float: left;
+    font-weight: bold;
+}
+
+.detail-content {
+    float: left;
+    width: 190rpx;
+    font-size: 24rpx;
+    color: #393939;
+    letter-spacing: 1rpx;
+    overflow: hidden;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+

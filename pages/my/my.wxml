@@ -1,0 +1,17 @@
+<view class="my-info-container">
+    <open-data class="absolute avatar" type="userAvatarUrl"></open-data>
+    <view class="absolute nickname">{{userInfo.nickname}}</view>
+    <view class="absolute member-since">自{{userInfo.memberSince}}成为注册会员</view>
+</view>
+
+<view class="about-item-container">
+    <navigator class="list" url="/pages/my/about">
+        <image src="../../static/imgs/about.svg" class="left-image" />
+        <view class="list-text">关于</view>
+        <image src="../../static/imgs/right-arrow.svg" class="right-arrow" />
+    </navigator>
+</view>
+
+<view class="tip">
+    由于服务器负载等问题，济南实时公交微信小程序版默认更新间隔为1分钟，后续将通过升级服务器实现秒级更新，感谢您对济南实时公交微信小程序的支持。
+</view>

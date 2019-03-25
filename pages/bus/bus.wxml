@@ -1,0 +1,121 @@
+<!-- pages/bus/bus.wxml -->
+<image class="absolute bus-info-background" mode="aspectFit" src="../../static/imgs/bus-info-background.png">
+    <view class="absolute bus-line-name">{{busLineName}}路</view>
+    <view class="absolute direction">方向</view>
+    <view class="absolute sn-en">{{startStation}} 至 {{endStation}}</view>
+    <image class="absolute switch-to" animation="{{switchingAnimate}}" src="../../static/imgs/switch-to.svg" bindtap="switchToOtherLine" />
+</image>
+<view class="absolute pick-up-section-title">乘车点</view>
+<view class="absolute pick-up-container">
+    <image class="absolute pick-up-bg" src="../../static/imgs/pick-up-background.png"></image>
+    <view class="pick-up-item1-container">
+        <view class="pick-up-title">名称</view>
+        <view class="pick-up-content">{{pickUpPointInfo.stationName}}</view>
+    </view>
+    <view class="pick-up-item2n3-container">
+        <view class="pick-up-title">距您</view>
+        <view class="pick-up-content">{{pickUpPointInfo.distance}}km</view>
+    </view>
+    <view class="pick-up-item2n3-container">
+        <view class="pick-up-title">最近的车</view>
+        <view class="pick-up-content">{{pickUpPointInfo.howManyStopsForTheNearestBus}}站</view>
+    </view>
+    <picker mode="selector" range="{{stationData}}" range-key="stationName" value="{{pickUpPointInfo.stationOrder}}" bindchange="pickUpPointChanged">
+        <image class="settings-icon" src="../../static/imgs/settings.svg"></image>
+    </picker>
+    <view class="clear"></view>
+</view>
+<view class="absolute real-time-location-container" style="min-height: {{realTimeContainerMinHeight}}rpx">
+    <view class="title-container">
+        <view class="title">实时定位</view>
+        <view class="update-subtitle" wx:if="{{updateTime}}">更新于{{updateTime}}</view>
+        <view class="update-subtitle" wx:else>暂未更新</view>
+        <view class="clear"></view>
+    </view>
+    <scroll-view class="relative real-time-map-container" scroll-x="{{true}}" scroll-left="{{scrollLeft}}rpx" scroll-with-animation="{{true}}">
+        <!-- <view class="holder"></view>
+        <view style="margin-left: 33rpx">
+            <block wx:for="{{realTimeData}}" wx:key="stationSeqNum">
+                <image src="../../static/imgs/bus-location.svg" class="bus-location" bindtap="busTappedEvent" style="left: {{129 + (item.stationSeqNum - 1) * 108}}rpx" data-busid="{{item.busId}}"></image>
+            </block>
+        </view> -->
+        <view style="display: block; width: {{mapWidth + 33}}rpx; padding-right: 33rpx; position:relative;">
+            <view>
+                <block wx:for="{{stationData}}" wx:key="stationOrder">
+                    <view style="padding-bottom: 5rpx; width: {{item.stationOrder === 0 ? 95 : 108}}rpx; height: 50rpx; float: left;">
+                        <block wx:for="{{realTimeData}}" wx:key="busId" wx:for-item="rtitem">
+                            <image src="../../static/imgs/bus-location.svg" class="bus-location" bindtap="busTappedEvent" wx:if="{{item.stationOrder === rtitem.stationSeqNum}}" data-busid="{{rtitem.busId}}" style="margin-left: {{item.stationOrder === 0 ? 21 : 34}}rpx"></image>
+                        </block>
+                    </view>
+                </block>
+                <view class="clear"></view>
+            </view>
+            <view class="map" style="width: {{mapWidth}}rpx"></view>
+            <view style="z-index: 1000; position: relative; margin-left: 45rpx;">
+                <block wx:for="{{stationData}}" wx:key="stationOrder">
+                    <image class="arrow-icon" src="../../static/imgs/map-arrow.svg" wx:if="{{item.stationOrder != 0}}" data-order="{{item.stationOrder}}"></image>
+                    <view class="station-container" bindtap="stationTappedEvent" data-order="{{item.stationOrder}}">
+                        <image class="station-icon" src="../../static/imgs/{{nearestStationOrder === item.stationOrder? 'current-icon': 'station-icon'}}.svg"></image>
+                        <view class="station-name" style="margin-left: {{item.stationOrder == 0 ? 12 : 8}}rpx">
+                            {{item.stationName}}
+                        </view>
+                    </view>
+                </block>
+                <view class="clear"></view>
+            </view>
+        </view>
+    </scroll-view>
+    <view class="detail-container">
+        <view class="detail-header">
+            <image class='detail-header-icon' mode="aspectFit" src="../../static/imgs/{{detailType === 'station'? 'station-detail': 'bus-detail'}}.svg"></image>
+            <view class="detail-header-text">{{detailType === 'station'? '站点信息': '公交车信息'}}</view>
+            <view class="clear"></view>
+            <view class="hr"></view>
+            <view class="detail-list-container" wx:if="{{detailType === 'station'}}">
+                <block wx:for="{{stationData}}" wx:key="stationOrder">
+                    <view wx:if="{{item.stationOrder == detailIndex}}">
+                        <view>
+                            <view class="detail-title" style="margin-left: 33rpx">站点名称</view>
+                            <view class="detail-content" style="margin-left: 10rpx">
+                                {{item.stationName}}
+                            </view>
+                            <view class="detail-title" style="margin-left: 16rpx">距离您</view>
+                            <view class="detail-content" style="margin-left: 27rpx">
+                                {{item.distance}}km
+                            </view>
+                            <view class="clear"></view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+            <view class="detail-list-container" wx:if="{{detailType === 'bus'}}">
+                <block wx:for="{{realTimeData}}" wx:key="busId">
+                    <view wx:if="{{item.busId == detailIndex}}">
+                        <view>
+                            <view class="detail-title" style="margin-left: 33rpx">线路名称</view>
+                            <view class="detail-content" style="margin-left: 10rpx">
+                                {{item.busLineName}}
+                            </view>
+                            <view class="detail-title" style="margin-left: 16rpx">汽车编号</view>
+                            <view class="detail-content" style="margin-left: 10rpx">
+                                {{item.busId}}
+                            </view>
+                            <view class="clear"></view>
+                        </view>
+                        <view style="margin-top: 20rpx">
+                            <view class="detail-title" style="margin-left: 33rpx">即将到达</view>
+                            <view class="detail-content" style="margin-left: 10rpx">
+                                {{item.nextStation ? item.nextStation : "--"}}
+                            </view>
+                            <view class="detail-title" style="margin-left: 16rpx">平均时速</view>
+                            <view class="detail-content" style="margin-left: 10rpx">
+                                {{item.averageVelocity}}km/h
+                            </view>
+                            <view class="clear"></view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+</view>

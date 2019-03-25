@@ -1,12 +1,16 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/auth/auth"
+    "pages/auth/auth",
+    "pages/my/my",
+    "pages/search/search",
+    "pages/bus/bus",
+    "pages/my/about"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "ACBus",
     "navigationBarTextStyle": "black"
   },
   "permission": {
@@ -14,5 +18,22 @@
       "desc": "您的位置信息将用于精确车站定位以及线路规划"
     }
   },
-  
+  "tabBar": {
+    "color": "#B6B6B6",
+    "selectedColor": "#1AAD19",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "公交",
+        "iconPath": "./static/imgs/bus.png",
+        "selectedIconPath": "./static/imgs/bus-selected.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "./static/imgs/my.png",
+        "selectedIconPath": "./static/imgs/my-selected.png"
+      }
+    ]
+  }
 }

@@ -1,0 +1,27 @@
+/* pages/my/about.wxss */
+.absolute {
+    display: block;
+    position: absolute;
+}
+
+.logo {
+    top: 100rpx;
+    left: 287rpx;
+    height: 186rpx;
+    width: 186rpx;
+}
+
+.app-name {
+    top: 336rpx;
+    width: 100%;
+    font-size: 40rpx;
+    text-align: center;
+}
+
+.version {
+    font-size: 28rpx;
+    color: #888888;
+    text-align: center;
+    width: 100%;
+    top: 421rpx;
+}

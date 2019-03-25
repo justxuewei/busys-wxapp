@@ -46,9 +46,15 @@ Page({
   },
 
   redirectToNext() {
-    wx.redirectTo({
-      url: this.data.nextPage
-    })
+    if (this.data.nextPage === "/pages/index/index" || this.data.nextPage === "/pages/my/my") {
+      wx.switchTab({
+        url: this.data.nextPage
+      })
+    } else {
+      wx.redirectTo({
+        url: this.data.nextPage
+      })
+    }
   },
 
   login: function() {

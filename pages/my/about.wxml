@@ -1,0 +1,6 @@
+<!--pages/my/about.wxml-->
+<image src="../../static/imgs/wxapp-logo.png" class="absolute logo" />
+
+<view class="absolute app-name">ACBus</view>
+
+<view class="absolute version">济南实时精准公交 · 版本1.0.0</view>

@@ -5,7 +5,7 @@ export default class Constants {
      * @param {string} path 格式为'/xxx/xxx'
      */
     static getApiUrl(path) {
-        return `http://192.168.0.107:8080${path}`
+        return `https://busys.niuxuewei.com:8443${path}`
     }
 
     /**

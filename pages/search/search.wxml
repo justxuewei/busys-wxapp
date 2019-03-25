@@ -1,0 +1,19 @@
+<!-- pages/search/search.wxml -->
+<input class="absolute search-input" focus="{{true}}" placeholder="在这里输入搜索内容" bindinput="searchInputEvent" bindconfirm="searchConfirmEvent" />
+<view class="absolute result-container" style="min-height: {{resultContainerMinHeight}}rpx" wx:if="{{resultList != null}}">
+    <block wx:if="{{resultList.length > 0}}">
+        <view class="absolute result-title">公共汽车</view>
+        <view class="result-list-container">
+            <block wx:for="{{resultList}}" wx:index="*this">
+                <view class="hr"></view>
+                <view class="result-item-container" bindtap="navigateToBus" data-buslineid="{{item.id}}" data-sn="{{item.startStationName}}" data-en="{{item.endStationName}}" data-bln="{{item.lineName}}">
+                    <view class="bus-line-name">{{item.lineName}}路</view>
+                    <image class="right-arrow" src="../../static/imgs/right-arrow.svg"></image>
+                    <view class="end-station">至 {{item.endStationName}}</view>
+                    <view class="clear"></view>
+                </view>
+            </block>
+        </view>
+    </block>
+    <view class="absolute no-data" wx:else>无数据</view>
+</view>

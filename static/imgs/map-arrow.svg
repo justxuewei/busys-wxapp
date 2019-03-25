@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="8px" height="13px" viewBox="0 0 8 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
+    <title>方向</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="公交车详情" transform="translate(-142.000000, -907.000000)" fill="#FFFFFF" fill-rule="nonzero" stroke="#FFFFFF">
+            <g id="Group-6" transform="translate(33.000000, 848.000000)">
+                <g id="方向" transform="translate(113.000000, 65.500000) rotate(-90.000000) translate(-113.000000, -65.500000) translate(106.500000, 61.500000)">
+                    <path d="M7.02607336,7.2741111 L12.2821428,1.81765397 C12.5726191,1.51642704 12.5726191,1.0277731 12.2821428,0.726504433 C11.9917067,0.424498522 11.5212335,0.424498522 11.230784,0.726504433 L6.50034034,5.63664954 L1.76918579,0.726504433 C1.47876313,0.424498522 1.00827654,0.424498522 0.717867293,0.726504433 C0.427377569,1.0277731 0.427377569,1.51641313 0.717867293,1.81765397 L5.97471463,7.2741111 C6.26438618,7.5752963 6.73562388,7.5752963 7.02607336,7.2741111 Z" id="Path"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

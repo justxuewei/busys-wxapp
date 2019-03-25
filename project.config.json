@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -12,7 +12,7 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.1.1",
+	"libVersion": "2.6.2",
 	"appid": "wx58d0e726eaeddb1e",
 	"projectname": "busys",
 	"debugOptions": {
@@ -37,12 +37,33 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 3,
 			"list": [
 				{
 					"id": 0,
 					"name": "登录测试",
 					"pathName": "pages/auth/auth",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "搜索测试",
+					"pathName": "pages/search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "详情页",
+					"pathName": "pages/bus/bus",
+					"query": "bli=10387&sn=王府庄&en=经五纬一&bln=7",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/my/my",
 					"query": "",
 					"scene": null
 				}
